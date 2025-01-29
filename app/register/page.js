@@ -1,0 +1,127 @@
+"use client";
+import React, { useState } from "react";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { auth } from "../../util/firebase"; 
+import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import RegisterImg from "@/components/RegisImg";
+import Link from "next/link";
+
+
+const Page = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
+  const router = useRouter();
+
+  const handleReg = async (event) => {
+    event.preventDefault(); 
+    setError(null);
+    setMessage(null);
+
+    if (password !== confirmPassword) {
+      setError("Password not matched");
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      await sendEmailVerification(user);
+      const userInfo = { fullName, email };
+      localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  
+      // Log the value being saved to localStorage
+      console.log("Saved to localStorage:", userInfo);
+      localStorage.setItem("userInfo", JSON.stringify({ fullName, email }));
+      
+      
+     toast("Registration successful! Check your email for verification.");
+      
+      setTimeout(() => {
+          router.push("/emailverify");
+      }, 2000);
+    } catch (e) {
+      setError(e.message || "Unknown Error");
+    }
+  };
+
+  return (
+    <>
+    <h1 className="text-center text-5xl m-10 text-indigo-500 font-bold">Register</h1>
+    <div className="flex">
+      <div className="w-3/5 h-full">
+        <RegisterImg/>
+      </div>
+      <div className="border-l-4 border-indigo-500"></div>
+      <div className="mx-10">
+      <div>
+            <ToastContainer />
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      {message && <p style={{ color: "green" }}>{message}</p>}
+      
+      <form onSubmit={handleReg}>
+        <div className="mb-4">
+          <input 
+            type="text" 
+            id="fullName" 
+            placeholder="Full Name"
+            className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+            value={fullName} 
+            onChange={(e) => setFullName(e.target.value)} 
+            required 
+          />
+        </div>
+        <div className="mb-4">
+          <input 
+          placeholder="Email"
+            type="email" 
+            className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+            id="email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            required 
+          />
+        </div>
+
+        <div className="mb-4">
+          <input 
+            type="password" 
+            id="password"
+            placeholder="Password"
+            className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
+          />
+        </div>
+
+        <div className="mb-4">
+          <input 
+            type="password" 
+            placeholder="Confirm Password"
+            id="confirmPassword" 
+            className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+            value={confirmPassword} 
+            onChange={(e) => setConfirmPassword(e.target.value)} 
+            required 
+          />
+        </div>
+        <div className="mt-6 mx-24">
+        <button type="submit" className=" bg-indigo-500 px-3 py-2 text-white font-extrabold rounded-full">Register</button>
+        </div>
+        <div className="mt-10">
+          <p className="text-2xl">Already have an Account?? <Link href={"/login"} className="text-green-500">Login</Link></p>
+        </div>
+      </form>
+    </div>
+      </div>
+    </div>
+    </>
+  );
+};
+
+export default Page;
