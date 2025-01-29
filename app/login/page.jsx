@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth, firestore } from "../../util/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import Loginimg from '@/components/loginimg';
+import Spin from '@/components/Spin';
 
 
 const Page = () => {
@@ -41,14 +42,14 @@ const Page = () => {
             email: user.email,
           });
         }
-        toast("all Roght")
+        toast("You are loggedIn")
         setTimeout(() => {
-          router.push("/home");
+          router.push("/dashboard");
       }, 2000);
       } else {
         toast("Please verify your email.");
         setTimeout(()=>{
-          router.push("/emailverify");
+          // router.push("/emailverify");
         },2000)
 
       }
@@ -105,7 +106,9 @@ const Page = () => {
         <div className="error-message">{error && <p>{error}</p>}</div>
         <div className="py-4 mx-24">
         <button type="submit" className='font-bold  py-1 bg-blue-500 text-white px-4 text-2xl rounded-3xl '  disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
+          {loading ? <div className=' w-20'>
+            <Spin/>
+          </div>: "Login"}
         </button>
         </div>
       </form>
