@@ -1,6 +1,8 @@
 "use client";
 import Face from "@/components/Face";
 import FaceLoad from "@/components/Faceload";
+import Footer from "@/components/Footer";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 export default function Home() {
@@ -20,20 +22,23 @@ export default function Home() {
         </div>
       ) : (
         <>
-          <div>
-            <h1 className="text-5xl text-center font-bold m-20 ">
-              Face Based
-              <br />
+          <div className="mb-40">
+          <div className="flex justify-center items-center">
+            <h1 className="text-4xl text-center font-bold m-20 ">
+              Face Based <br/>
               Attendance Management System
             </h1>
+            <div className=" absolute right-5">
+              <Link href={"/dashboard"} className="text-2xl bg-blue-500 text-white italic p-3 rounded-full hover:bg-green-500">Dashboard</Link>
+            </div>
           </div>
 
-          <div className="flex">
+          <div className="flex ">
             <div className="h-200 w-1/2">
               <Face />
             </div>
 
-            <div className="w-1/2 mx-20">
+            <div className="w-1/2 mx-20 ">
               <p className="text-justify text-2xl text-blue-500 font-semibold">
                 A face-based attendance management system uses facial recognition
                 technology to track employee or student attendance. It works by
@@ -48,6 +53,8 @@ export default function Home() {
               </p>
             </div>
           </div>
+          </div>
+          <Footer/>
         </>
       )}
     </>

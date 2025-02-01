@@ -16,12 +16,7 @@ const Page = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const  router = useRouter();
-  
 
-
-  
-
- 
   const handleLog = async (event) => {
     event.preventDefault();
     setError(""); 
@@ -42,12 +37,12 @@ const Page = () => {
             email: user.email,
           });
         }
-        toast("You are loggedIn")
+        toast.success("You are loggedIn")
         setTimeout(() => {
           router.push("/dashboard");
-      }, 2000);
+      }, 1000);
       } else {
-        toast("Please verify your email.");
+        toast.warning("Please verify your email.");
         setTimeout(()=>{
           // router.push("/emailverify");
         },2000)
@@ -55,7 +50,7 @@ const Page = () => {
       }
     } catch (e) {
       if (e instanceof Error) {
-        setError(e.message);
+        toast.error(e.message);
       } else {
         setError("Unknown error occurred.");
       }

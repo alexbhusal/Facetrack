@@ -44,12 +44,10 @@ const Page = () => {
       });
 
       await sendEmailVerification(user);
-
-      toast("Registration successful! Check your email for verification.");
-      
+      toast.warning("Registration successful! Check your email for verification.");
       setTimeout(() => {
         router.push("/emailverify");
-      }, 2000);
+      }, 1000);
       
     } catch (e) {
       setError(e.message || "Unknown Error");
