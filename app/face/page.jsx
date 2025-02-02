@@ -1,7 +1,7 @@
 "use client"
 import { useRef, useState, useEffect } from "react";
 import * as faceapi from "face-api.js";
-import { db, collection, addDoc, getDocs } from "../firebase1"; // Updated Firestore imports
+import { firestore, collection, addDoc, getDocs } from "../../util/firebase"; 
 
 function Page() {
   const videoRef = useRef();
@@ -56,7 +56,7 @@ function Page() {
   const fetchStoredFaceData = async () => {
     try {
       // Fetch documents from the 'faces' collection
-      const querySnapshot = await getDocs(collection(db, "faces"));
+      const querySnapshot = await getDocs(collection(firestore, "faces"));
       const storedFaces = querySnapshot.docs.map((doc) => doc.data());
       return storedFaces;
     } catch (error) {
@@ -157,7 +157,7 @@ function Page() {
       };
 
       // Add new document to the 'faces' collection
-      const docRef = await addDoc(collection(db, "faces"), faceData);
+      const docRef = await addDoc(collection(firestore, "faces"), faceData);
       console.log("Face data saved with ID: ", docRef.id);
     } catch (error) {
       console.error("Error adding document: ", error);
