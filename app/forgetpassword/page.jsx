@@ -21,7 +21,7 @@ const Page = () => {
 
     try {
       await sendPasswordResetEmail(auth, email);
-      setSuccessMessage("Password reset email sent! Check your inbox.");
+      Toast.success("Password reset email sent! Check your inbox.");
       setError("");
       setEmail("");
     } catch (err) {
@@ -32,6 +32,7 @@ const Page = () => {
 
   return (
     <>
+      <ToastContainer />
       <h1 className="text-5xl font-bold m-10  text-red-500 text-center">
         Forgot Password
       </h1>
