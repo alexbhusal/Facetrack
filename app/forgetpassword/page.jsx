@@ -5,6 +5,7 @@ import { auth } from "../../util/firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
 import Forgetimg from "@/components/Forgetimg";
 import Link from "next/link";
+import { toast, ToastContainer } from "react-toastify";
 
 const Page = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const Page = () => {
 
     try {
       await sendPasswordResetEmail(auth, email);
-      Toast.success("Password reset email sent! Check your inbox.");
+      toast.success("Password reset email sent! Check your inbox.");
       setError("");
       setEmail("");
     } catch (err) {
