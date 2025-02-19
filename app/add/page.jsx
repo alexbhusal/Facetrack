@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import * as faceapi from "face-api.js";
 import { firestore, collection, addDoc, getDocs } from "../../util/firebase"; 
 import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2"; // Import SweetAlert2
 
 function Page() {
   const videoRef = useRef();
@@ -103,6 +104,7 @@ function Page() {
         if (matchedName) {
           setUserName(matchedName); // Show name if a match is found
           console.log("Welcome back, " + matchedName);
+        //   toast.success(`Welcome back, ${matchedName}`);
         } else if (!faceDetected) {
           setFaceDetected(true);
           askForName(currentDescriptor); // Ask for name if no match
@@ -131,23 +133,38 @@ function Page() {
       faceapi.draw.drawDetections(canvasRef.current, resized);
       faceapi.draw.drawFaceLandmarks(canvasRef.current, resized);
       faceapi.draw.drawFaceExpressions(canvasRef.current, resized);
-      // resized.forEach((detection) => {
-      //   const { age, gender } = detection;
-      //   const text = `${age.toFixed(0)} years, ${gender}`;
-      //   new faceapi.draw.DrawTextField([text], detection.detection.box.bottomRight).draw(canvasRef.current);
-      // });
-    }, 2000);
+    }, 5000);
   };
 
   // Function to ask for the user's name
   const askForName = (currentDescriptor) => {
-    const name = prompt("Please enter your name:");
+    // Fetch users from Firebase and display a SweetAlert
+    fetchUsersFromDatabase().then((userList) => {
+      Swal.fire({
+        title: "Select your username",
+        input: 'select',
+        inputOptions: userList.reduce((options, user) => {
+          options[user] = user;
+          return options;
+        }, {}),
+        inputPlaceholder: "Choose a username",
+        showCancelButton: true,
+        confirmButtonText: 'Submit',
+        cancelButtonText: 'Cancel',
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          const selectedUserName = result.value;
+          saveFaceDataToFirebase(selectedUserName, Array.from(currentDescriptor)); // Save face data
+          toast.success("Face data has been added to the selected username.");
+        }
+      });
+    });
+  };
 
-    if (name) {
-      setUserName(name);
-      // Store the face descriptor along with the name
-      saveFaceDataToFirebase(name, Array.from(currentDescriptor)); // Convert Float32Array to Array
-    }
+  // Function to fetch users from the database
+  const fetchUsersFromDatabase = async () => {
+    const querySnapshot = await getDocs(collection(firestore, "users"));
+    return querySnapshot.docs.map((doc) => doc.data().fullName); // Assuming users are stored in a 'users' collection
   };
 
   // Save the face data (name and descriptor) to Firebase
