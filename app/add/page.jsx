@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useRef, useState, useEffect } from "react";
 import * as faceapi from "face-api.js";
-import { firestore, collection, addDoc, getDocs } from "../../util/firebase"; 
+import { firestore, collection, addDoc, getDocs } from "../../util/firebase";
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2"; // Import SweetAlert2
 
@@ -74,10 +74,13 @@ function Page() {
 
     for (const face of storedFaces) {
       const storedDescriptor = new Float32Array(face.faceDescriptor);
-      const distance = faceapi.euclideanDistance(currentDescriptor, storedDescriptor);
+      const distance = faceapi.euclideanDistance(
+        currentDescriptor,
+        storedDescriptor
+      );
 
       if (distance < 0.6) {
-        return face.name;  // Return the name of the matched face
+        return face.name; // Return the name of the matched face
       }
     }
     return null; // No match found
@@ -91,7 +94,7 @@ function Page() {
         .withFaceLandmarks()
         .withFaceExpressions()
         .withAgeAndGender()
-        .withFaceDescriptors();  // Get face descriptors
+        .withFaceDescriptors(); // Get face descriptors
 
       console.log(detections); // Log detections for debugging
 
@@ -104,7 +107,7 @@ function Page() {
         if (matchedName) {
           setUserName(matchedName); // Show name if a match is found
           console.log("Welcome back, " + matchedName);
-        //   toast.success(`Welcome back, ${matchedName}`);
+          //   toast.success(`Welcome back, ${matchedName}`);
         } else if (!faceDetected) {
           setFaceDetected(true);
           askForName(currentDescriptor); // Ask for name if no match
@@ -142,20 +145,28 @@ function Page() {
     fetchUsersFromDatabase().then((userList) => {
       Swal.fire({
         title: "Select your username",
-        input: 'select',
+        input: "select",
         inputOptions: userList.reduce((options, user) => {
           options[user] = user;
           return options;
         }, {}),
         inputPlaceholder: "Choose a username",
         showCancelButton: true,
-        confirmButtonText: 'Submit',
-        cancelButtonText: 'Cancel',
+        confirmButtonText: "Submit",
+        cancelButtonText: "Cancel",
       }).then(async (result) => {
         if (result.isConfirmed) {
           const selectedUserName = result.value;
-          saveFaceDataToFirebase(selectedUserName, Array.from(currentDescriptor)); // Save face data
-          toast.success("Face data has been added to the selected username.");
+          saveFaceDataToFirebase(
+            selectedUserName,
+            Array.from(currentDescriptor)
+          ); // Save face data
+          //   toast.success("Face data has been added to the selected username.");
+          Swal.fire({
+            title: "Face Added",
+            text: `Face data has been added to the ${selectedUserName}`,
+            icon: "success",
+          });
         }
       });
     });
@@ -172,7 +183,7 @@ function Page() {
     try {
       const faceData = {
         name: name,
-        faceDescriptor: faceDescriptor,  // Ensure face descriptor is an array
+        faceDescriptor: faceDescriptor, // Ensure face descriptor is an array
         timestamp: new Date(),
       };
 
@@ -186,10 +197,12 @@ function Page() {
 
   return (
     <>
-    <ToastContainer/>
-      <p className="text-2xl sm:text-3xl md:text-5xl text-center m-4 sm:m-6 md:m-10 text-red-600">Face App</p>
+      <ToastContainer />
+      <p className="text-2xl sm:text-3xl md:text-5xl text-center m-4 sm:m-6 md:m-5 text-black">
+        FaceTrack Face Add
+      </p>
       <div className="flex flex-col sm:flex-row md:flex-row">
-        <div className="mx-4 sm:mx-6 md:mx-10 overflow-hidden">
+        <div className="mx-4 sm:mx-6 md:mx-10 overflow-hidden w-full sm:w-auto">
           <video
             className="rounded-2xl border-4 border-dashed border-black w-full"
             crossOrigin="anonymous"
@@ -197,12 +210,22 @@ function Page() {
             autoPlay
           />
         </div>
-        <div className="overflow-hidden mt-4 sm:mt-6 md:mt-0">
+        <div className="overflow-hidden sm:mt-6 md:mt-0   w-full sm:w-auto">
           <canvas ref={canvasRef} width="940" height="650" className="w-full" />
         </div>
       </div>
-      {userName ? <p className="text-xl text-center">Hello, {userName}!</p>:
-      <p className="text-xl text-center">Please wait!! Recognizing your face</p>}
+      {userName ? (
+        <>
+          <h1 className="text-center text-3xl text-red-600  italic">
+            {userName}
+          </h1>
+          <p className="text-center">Your face Already Registered</p>
+        </>
+      ) : (
+        <p className="text-xl text-center">
+          Please wait!! Loading..........
+        </p>
+      )}
     </>
   );
 }
