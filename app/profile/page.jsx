@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import EditProfile from "@/components/EditProfile";
 import Spin from "@/components/Spin";
 import { toast, ToastContainer } from "react-toastify";
+import UploadImage from "@/components/UploadImage";
 
 const ProfilePage = () => {
   const [fullName, setFullName] = useState(null);
@@ -14,6 +15,7 @@ const ProfilePage = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [batch, setBatch] = useState("");
   const [faculty, setFaculty] = useState("");
+  const [imgurl, setImageUrl] = useState("");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [btnloading, setBtnLoading] = useState(false);
@@ -32,6 +34,7 @@ const ProfilePage = () => {
           setMobileNumber(userData.mobileNumber || "");
           setBatch(userData.batch || "");
           setFaculty(userData.faculty || "");
+          setImageUrl(userData.imgurl || "");
         } else {
           router.push("/login");
         }
@@ -54,16 +57,17 @@ const ProfilePage = () => {
         mobileNumber,
         batch,
         faculty,
+        imgurl,
         LastUpdatedAt: new Date(),
       });
-      toast.info("Data Updated Succesfully");
+      toast.info("Data Updated Successfully");
       setTimeout(() => {
         router.push("/dashboard");
       }, 2000);
     } catch (e) {
       console.log(e);
-      toast.error(e);
-    }finally{
+      toast.error(e.message || "An error occurred");
+    } finally {
       setBtnLoading(false);
     }
   };
@@ -71,6 +75,7 @@ const ProfilePage = () => {
   if (loading) {
     return <Spin />;
   }
+
   return (
     <>
       <ToastContainer />
@@ -81,11 +86,18 @@ const ProfilePage = () => {
         </div>
         <div className="border-l-4 border-black"></div>
         <div className="w-2/12 mx-10">
-        
+      <UploadImage setImageUrl={setImageUrl} />
+        <div className="w-48 h-48 mx-20 h my-2 overflow-hidden rounded-full">
+              <img
+                src={
+                  imgurl ||
+                  "https://imgs.search.brave.com/JAHeWxUYEwHB7KV6V1IbI9oL7wxJwIQ4Sbp8dHQL09A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAx/MzkxNTc2NC9waG90/by91c2VyLWljb24t/aW4tZmxhdC1zdHls/ZS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9UEotMnZvUWZh/Q3hhZUNsdzZYYlVz/QkNaT3NTTjlIVWVC/SUg1Qk82VmRScz0"
+                }
+                className="w-full h-full object-cover object-center"
+                alt="Profile"
+              />
+            </div>
           <form onSubmit={handleSubmit} className="mx-10">
-          <div className="w-32 mx-20 h my-2">
-          <img src="https://bhuvanbhusal.com.np/image/IMG_0925.JPG" className="rounded-3xl" alt="" />
-        </div>
             <div className="mb-4">
               <input
                 type="text"
@@ -152,7 +164,7 @@ const ProfilePage = () => {
               className="mx-24 w-32 bg-indigo-500 text-white p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
               disabled={!mobileNumber || !batch || !faculty}
             >
-              {btnloading ? <div className='w-20'>Updating...</div> : "Update"}
+              {btnloading ? <div className="w-20">Updating...</div> : "Update"}
             </button>
           </form>
         </div>
