@@ -4,7 +4,7 @@ import Face from "./Face";
 
 const Section = () => {
   const [text, setText] = useState("");
-  const fullText = `A face-based attendance management system uses facial recognition technology to track employee or student attendance. 
+  const fullText = `A  face-based attendance management system uses facial recognition technology to track employee or student attendance. 
                     It works by capturing the face of the individual through a camera, comparing it to a pre-existing database, and recording the time of entry or exit.
                     This system is highly accurate, contactless, and efficient, reducing the risk of errors or fraud associated with traditional methods like fingerprint scanning or manual logging. 
                     It also enhances security and privacy, as it does not require physical IDs. 
@@ -12,11 +12,18 @@ const Section = () => {
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
-      setText((prev) => prev + fullText[i]);
+      setText((prev) => {
+        if (i < fullText.length) {
+          return prev + fullText[i];
+        } else {
+          clearInterval(interval);
+          return prev; // Return previous state without modification
+        }
+      });
       i += 1;
-      if (i === fullText.length) clearInterval(interval);
-    }, 20); // Adjust the speed here (in ms)
-    return () => clearInterval(interval); // Cleanup the interval on unmount
+    }, 20);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -27,14 +34,7 @@ const Section = () => {
             Face Based <br />
             Attendance Management System
           </h1>
-          <div className=" absolute right-5">
-            <Link
-              href={"/dashboard"}
-              className="text-2xl bg-blue-500 text-white italic p-3 rounded-full hover:bg-green-500"
-            >
-              Dashboard
-            </Link>
-          </div>
+          <div className=" absolute right-5"></div>
         </div>
 
         <div className="flex ">
