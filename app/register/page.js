@@ -1,9 +1,12 @@
-"use client"
+"use client";
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
-import { auth,firestore } from "../../util/firebase"; 
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
+import { auth, firestore } from "../../util/firebase";
 import { useRouter } from "next/navigation";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 import RegisterImg from "@/components/RegisImg";
 import Link from "next/link";
 import { doc, setDoc } from "firebase/firestore";
@@ -18,22 +21,26 @@ const Page = () => {
   const [message, setMessage] = useState("");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  
 
   const handleReg = async (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
     setError(null);
     setMessage(null);
-    setLoading(true); 
-
+    setLoading(true);
 
     if (password !== confirmPassword) {
-      setError("Password not matched");
+      toast.error("Password not matched");
+      setLoading(false);
+
       return;
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
 
       // Save user data in Firestore
@@ -44,25 +51,27 @@ const Page = () => {
       });
 
       await sendEmailVerification(user);
-      toast.warning("Registration successful! Check your email for verification.");
+      toast.warning(
+        "Registration successful! Check your email for verification."
+      );
       setTimeout(() => {
         router.push("/emailverify");
       }, 1000);
-      
     } catch (e) {
-      setError(e.message || "Unknown Error");
-    }
-    finally {
-      setLoading(false); 
+      toast.error(e.message || "Unknown Error");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <h1 className="text-center text-5xl m-10 text-indigo-500 font-bold">Register</h1>
+      <h1 className="text-center text-5xl m-10 text-indigo-500 font-bold">
+        Register
+      </h1>
       <div className="flex">
         <div className="w-3/5 h-full">
-          <RegisterImg/>
+          <RegisterImg />
         </div>
         <div className="border-l-4 border-indigo-500"></div>
         <div className="mx-10">
@@ -70,65 +79,76 @@ const Page = () => {
             <ToastContainer />
             {error && <p style={{ color: "red" }}>{error}</p>}
             {message && <p style={{ color: "green" }}>{message}</p>}
-            
+
             <form onSubmit={handleReg}>
               <div className="mb-4">
-                <input 
-                  type="text" 
-                  id="fullName" 
+                <input
+                  type="text"
+                  id="fullName"
                   placeholder="Full Name"
                   className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
-                  value={fullName} 
-                  onChange={(e) => setFullName(e.target.value)} 
-                  required 
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
                 />
               </div>
               <div className="mb-4">
-                <input 
+                <input
                   placeholder="Email"
-                  type="email" 
+                  type="email"
                   className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
-                  id="email" 
-                  value={email} 
-                  onChange={(e) => setEmail(e.target.value)} 
-                  required 
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
                 />
               </div>
 
               <div className="mb-4">
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   id="password"
                   placeholder="Password"
                   className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
-                  value={password} 
-                  onChange={(e) => setPassword(e.target.value)} 
-                  required 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
               </div>
 
               <div className="mb-4">
-                <input 
-                  type="password" 
+                <input
+                  type="password"
                   placeholder="Confirm Password"
-                  id="confirmPassword" 
+                  id="confirmPassword"
                   className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
-                  value={confirmPassword} 
-                  onChange={(e) => setConfirmPassword(e.target.value)} 
-                  required 
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
                 />
               </div>
               <div className="mt-6 mx-24">
-                <button type="submit" className=" bg-indigo-500 px-3 py-2 text-white font-extrabold rounded-full" disabled={loading}>
-                {loading ? 
-                <div className="w-20">
-                  <Spin/>
-                </div> : "Register"}
+                <button
+                  type="submit"
+                  className=" bg-indigo-500 px-3 py-2 text-white font-extrabold rounded-full"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <div className="w-20">
+                      <Spin />
+                    </div>
+                  ) : (
+                    "Register"
+                  )}
                 </button>
-
               </div>
               <div className="mt-10">
-                <p className="text-2xl">Already have an Account?? <Link href={"/login"} className="text-green-500">Login</Link></p>
+                <p className="text-2xl">
+                  Already have an Account??{" "}
+                  <Link href={"/login"} className="text-green-500">
+                    Login
+                  </Link>
+                </p>
               </div>
             </form>
           </div>

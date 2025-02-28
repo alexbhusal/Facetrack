@@ -66,7 +66,7 @@ const Page = () => {
       <div className="h-full w-11/12">
         <Loginimg/>
       </div>
-      <div class="border-l-4 border-blue-500 h-180 mx-2"></div>
+      <div className="border-l-4 border-blue-500 h-180 mx-2"></div>
       <div className="mt-10 w-1/2">
       <div className="login-container mx-12">
       <ToastContainer />
