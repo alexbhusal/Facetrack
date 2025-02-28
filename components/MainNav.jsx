@@ -1,18 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
+import LogoNav from "./logo";
 
 const MainNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <nav className="">
+      <nav className="" data-aos="fade-right">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            {/* <img src="" className="h-8" alt="Flowbite Logo" /> */}
+            <div className="h-16">
+              <LogoNav/>
+            </div>
             <span className=" md:self-center text-3xl text-blue-500 font-semibold whitespace-nowrap ">
               FaceTrack
             </span>
@@ -20,7 +23,7 @@ const MainNav = () => {
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center "
+              className="text-white bg-blue-500  hover:bg-blue-200 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center "
             >
               <Link href={"/dashboard"}>Get started</Link>
             </button>
