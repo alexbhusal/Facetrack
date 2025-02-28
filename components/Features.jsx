@@ -12,8 +12,8 @@ export default function Features() {
       <div className="">
         <h1 className="text-3xl font-semibold text-center">Features</h1>
       </div>
-      <div className="w-full h-screen max-h-[600px] shadow-xl flex flex-col overflow-hidden">
-        <nav className="   border-b-2 border-gray-200 h-11 mt-10"  >
+      <div className="w-full h-screen max-h-[700px] md:max-h-[600px] shadow-xl flex flex-col overflow-hidden">
+        <nav className="   border-b-4 border-gray-200 h-20 mt-10"  >
           <ul className="flex w-full list-none p-0 m-0 text-xl font-semibold">
             {allIngredients.map((item) => (
               <motion.li
@@ -31,7 +31,9 @@ export default function Features() {
                   alt={item.label}
                   className="h-6 w-10 inline-block mr-2"
                 />
+                <span className="hidden md:block">
                 {item.label}
+                </span>
                 {item === selectedTab && (
                   <motion.div
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500"
@@ -57,7 +59,7 @@ export default function Features() {
                 alt={selectedTab.label}
                 className="h-auto w-96 mx-auto"
               />
-              <div className="w-[550px] h-auto">
+              <div className="w-full   md:w-[550px] h-auto">
                 <h1 className="text-xl text-blue-500 font-semibold mt-2">
                   {selectedTab.label}
                 </h1>

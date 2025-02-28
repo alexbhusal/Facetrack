@@ -20,16 +20,20 @@ const DataShow = () => {
     }, []);
 
     return (
-        <div className="m-10 p-2 border-2 border-black w-11/12 rounded-xl flex gap-32">
-            {DataMain.map((data, index) => (
-                <motion.div key={index} className="h-32 w-auto p-10 text-center">
-                    <motion.pre className="text-3xl font-semibold">
-                        {roundedValues[index].current}+                        
-                    </motion.pre>
-                     <h1 className="text-xl font-semibold">{data.label}</h1>
-                </motion.div>
-            ))}
-        </div>
+        <div className="m-1 sm:m-10 p-2 border-2 border-black w-full sm:w-11/12 rounded-xl grid grid-cols-2 sm:flex sm:flex-row gap-2 sm:gap-28">
+  {DataMain.map((data, index) => (
+    <motion.div
+      key={index}
+      className="h-32 w-full sm:w-auto p-1 sm:p-10 text-center"
+    >
+      <motion.pre className="text-2xl sm:text-3xl font-semibold">
+        {roundedValues[index].current}+
+      </motion.pre>
+      <h1 className="text-lg sm:text-xl font-semibold">{data.label}</h1>
+    </motion.div>
+  ))}
+</div>
+
     );
 };
 

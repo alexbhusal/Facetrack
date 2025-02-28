@@ -79,13 +79,13 @@ const ProfilePage = () => {
   return (
     <>
       <ToastContainer />
-      <h1 className="text-5xl text-center font-bold m-10">Profile Update</h1>
-      <div className="flex">
-        <div className="h-full w-8/12">
+      <h1 className="text-3xl md:text-5xl text-center font-bold m-2 md:m-10">Profile Update</h1>
+      <div className="flex flex-col md:flex-row">
+        <div className="hidden md:block h-full md:w-8/12">
           <EditProfile />
         </div>
         <div className="border-l-4 border-black"></div>
-        <div className="w-2/12 mx-10">
+        <div className="w-full md:w-2/12 mx-2 md:mx-10">
       <UploadImage setImageUrl={setImageUrl} />
         <div className="w-48 h-48 mx-20 h my-2 overflow-hidden rounded-full">
               <img

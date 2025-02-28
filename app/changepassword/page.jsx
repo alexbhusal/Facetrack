@@ -52,23 +52,23 @@ const Page = () => {
 
   return (
     <>
-      <h1 className="text-5xl text-blue-500 font-bold text-center m-10">
+      <h1 className="text-3xl md:text-5xl text-blue-500 font-bold text-center   my-10">
         Change Password
       </h1>
 
-      <div className="flex">
-        <div className="w-3/5 h-full">
+      <div className="flex flex-col md:flex-row">
+        <div className="h-full w-full md:w-3/5 ">
           <ChangeImg />
         </div>
         <div className="border-l-4 border-blue-500 mx-4"></div>
-        <div className="w-2/5">
-          <div className="container mx-10">
+        <div className="w-full md:w-2/5">
+          <div className="container mx-auto">
             <form onSubmit={handlePassChange}>
               <div className="py-2">
                 <input
                   type="password"
                   id="currentPassword"
-                  className=" focus:outline-none focus:ring-2 focus:ring-blue-500 w-72 border-2 border-blue-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-72 border-2 border-blue-500 p-3  mx-2 rounded-full"
                   placeholder="Current Password"
                   value={currentPassword}
                   onChange={(e) => setCurrentPassword(e.target.value)}
@@ -81,7 +81,7 @@ const Page = () => {
                   type="password"
                   id="newPassword"
                   placeholder="New Password"
-                  className=" focus:outline-none focus:ring-2 focus:ring-blue-500 w-72 border-2 border-blue-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-72 border-2 border-blue-500 p-3 mx-2 rounded-full"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
                   required
@@ -92,7 +92,7 @@ const Page = () => {
                 <input
                   type="password"
                   id="confirmNewPassword"
-                  className=" focus:outline-none focus:ring-2 focus:ring-blue-500 w-72 border-2 border-blue-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-72 border-2 border-blue-500 p-3 mx-2 rounded-full"
                   placeholder="Confirm New Password"
                   value={confirmNewPassword}
                   onChange={(e) => setConfirmNewPassword(e.target.value)}
@@ -107,15 +107,15 @@ const Page = () => {
               <div className="success-message">
                 {message && <p style={{ color: "green" }}>{message}</p>}
               </div>
-              <div className="py-5 px-16">
+              <div className="flex justify-center items-center md:justify-start mx-0 md:mx-16 py-5">
               <button className="bg-blue-500 px-3 py-2 text-xl text-white rounded-full" type="submit">Change Password</button>
 
               </div>
 
             </form>
 
-            <div className="mx-16 my-10">
-            <Link href={"/dashboard"} className="text-green-500 font-extrabold hover:text-red-500 ">GO TO DASHBOARD
+            <div className="flex justify-start items-center m-5">
+            <Link href={"/dashboard"} className="text-green-500 text-xl font-extrabold hover:text-red-500 ">GO TO DASHBOARD
             </Link>
             </div>
           </div>

@@ -34,24 +34,23 @@ const Page = () => {
   return (
     <>
       <ToastContainer />
-      <h1 className="text-5xl font-bold m-10  text-red-500 text-center">
+      <h1 className="text-3xl md:text-5xl font-bold m-10  text-red-500 text-center">
         Forgot Password
       </h1>
-      <div className="flex">
-        <div className="w-3/4 h-full">
+      <div className="flex flex-col md:flex-row">
+        <div className="h-full w-full md:w-3/4 ">
           <Forgetimg />
         </div>
       <div class="border-l-4 border-red-500 h-180 mx-4"></div>
 
-
-        <div className="w-1/2">
-          <div className="m-20">
+        <div className="w-full md:w-1/2">
+          <div className="m-5 md:m-20">
             <form onSubmit={handleSubmit}>
               <div>
                 <input
                   type="email"
                   id="email"
-                  className=" focus:outline-none focus:ring-2 focus:ring-red-500 w-72 border-2 border-red-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-red-500 w-full md:w-96 border-2 border-red-500 p-3 rounded-full"
                   placeholder="Enter Your Email Adderess"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -62,15 +61,17 @@ const Page = () => {
               {successMessage && (
                 <p style={{ color: "green" }}>{successMessage}</p>
               )}
-              <div className="">
-              <button type="submit" className="font-bold bg-red-500 text-white p-3 my-4 mx-20 rounded-3xl">Reset Password</button>
+              <div className="flex justify-center items-center mt-5">
+              <button type="submit"
+               className="font-bold bg-red-500 text-white p-3  rounded-3xl"
+               >Reset Password</button>
               </div>
-              <div className="my-10 border-b-4 border-red-400 w-72"></div>
-              <div className="flex mt-10">
+              <div className="my-2 md:my-10 border-b-4 border-red-400 w-full md:w-96"></div>
+              <div className="flex justify-center items-center mt-5 md:mt-10">
               <div >
                 <Link href={"/login"} className="bg-green-500 p-3 rounded-full text-white">Go to Login</Link>
               </div>
-              <div className="mx-10">
+              <div className="ml-10">
               <Link href={"/register"} className="bg-indigo-500 p-3 rounded-full text-white">Go to Register</Link>
               </div>
               </div>

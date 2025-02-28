@@ -13,17 +13,17 @@ const MainNav = () => {
             href="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <div className="h-16">
+            <div className="hidden md:block h-16 md:h-16 ">
               <LogoNav/>
             </div>
-            <span className=" md:self-center text-3xl text-blue-500 font-semibold whitespace-nowrap ">
+            <span className="text-xl  md:self-center md:text-3xl text-blue-500 font-semibold whitespace-nowrap ">
               FaceTrack
             </span>
           </Link>
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
             <button
               type="button"
-              className="text-white bg-blue-500  hover:bg-blue-200 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center "
+              className="text-white bg-blue-500  hover:bg-blue-200 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-2 md:px-4 py-2 text-center "
             >
               <Link href={"/dashboard"}>Get started</Link>
             </button>

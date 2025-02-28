@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <>
 <footer className=" border-black border-4 m-2 ">
-    <div className="mx-auto w-256 max-w-screen-xl">
+    <div className="mx-auto w-auto max-w-screen-xl">
       <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
         <div>
-            <h2 className="mb-6 text-sm font-semibold  uppercase ">Company</h2>
+            <h2 className="mb-6 text-xl font-semibold  uppercase ">Company</h2>
             <ul className="  font-medium">
                 <li className="mb-4">
                     <Link href="#" className=" hover:underline">About</Link>
@@ -25,7 +25,7 @@ const Footer = () => {
             </ul>
         </div>
         <div>
-            <h2 className="mb-6 text-sm font-semibold  uppercase ">Help center</h2>
+            <h2 className="mb-6 text-xl font-semibold  uppercase ">Help center</h2>
             <ul className="  font-medium">
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Discord Server</Link>
@@ -42,7 +42,7 @@ const Footer = () => {
             </ul>
         </div>
         <div>
-            <h2 className="mb-6 text-sm font-semibold  uppercase ">Legal</h2>
+            <h2 className="mb-6 text-xl font-semibold  uppercase ">Legal</h2>
             <ul className="  font-medium">
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">Privacy Policy</Link>
@@ -56,7 +56,7 @@ const Footer = () => {
             </ul>
         </div>
         <div>
-            <h2 className="mb-6 text-sm font-semibold  uppercase ">Download</h2>
+            <h2 className="mb-6 text-xl font-semibold  uppercase ">Download</h2>
             <ul className="  font-medium">
                 <li className="mb-4">
                     <Link href="#" className="hover:underline">iOS</Link>
@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
     </div>
     <div className="px-4 py-6 md:flex md:items-center md:justify-between">
-        <span className="text-sm   sm:text-center">{new Date().getFullYear()} <Link href="https://bhuvanbhusal.com.np/">Alex Bhusal</Link>. All Rights Reserved.
+        <span className="text-lg  text-center sm:text-left">{new Date().getFullYear()} <Link href="https://bhuvanbhusal.com.np/">Alex Bhusal</Link>. All Rights Reserved.
         </span>
         <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
             <Link href="#" className="text-gray-400 hover:text-green-500">

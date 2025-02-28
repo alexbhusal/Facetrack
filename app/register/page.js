@@ -66,15 +66,15 @@ const Page = () => {
 
   return (
     <>
-      <h1 className="text-center text-5xl m-10 text-indigo-500 font-bold">
+      <h1 className="text-center text-3xl md:text-5xl m-2 md:m-10 text-indigo-500 font-bold">
         Register
       </h1>
-      <div className="flex">
-        <div className="w-3/5 h-full">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full h-full md:w-3/5 ">
           <RegisterImg />
         </div>
         <div className="border-l-4 border-indigo-500"></div>
-        <div className="mx-10">
+        <div className="mx-2 md:mx-12">
           <div>
             <ToastContainer />
             {error && <p style={{ color: "red" }}>{error}</p>}
@@ -86,7 +86,7 @@ const Page = () => {
                   type="text"
                   id="fullName"
                   placeholder="Full Name"
-                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
@@ -96,7 +96,7 @@ const Page = () => {
                 <input
                   placeholder="Email"
                   type="email"
-                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -109,7 +109,7 @@ const Page = () => {
                   type="password"
                   id="password"
                   placeholder="Password"
-                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -121,13 +121,13 @@ const Page = () => {
                   type="password"
                   placeholder="Confirm Password"
                   id="confirmPassword"
-                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-72 border-2 border-indigo-500 p-3 rounded-full"
+                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
                 />
               </div>
-              <div className="mt-6 mx-24">
+              <div className="flex justify-center items-center">
                 <button
                   type="submit"
                   className=" bg-indigo-500 px-3 py-2 text-white font-extrabold rounded-full"
@@ -142,8 +142,8 @@ const Page = () => {
                   )}
                 </button>
               </div>
-              <div className="mt-10">
-                <p className="text-2xl">
+              <div className="mt-5">
+                <p className="text-xl md:text-2xl">
                   Already have an Account??{" "}
                   <Link href={"/login"} className="text-green-500">
                     Login

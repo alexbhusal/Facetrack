@@ -10,7 +10,7 @@ const Testimonials = () => {
             What people are saying about FaceTrack
           </h1>
         </div >
-        <div className="flex flex-col  md:flex-row m-5  items-center justify-start gap-5 overflow-x-auto ">
+        <div className="flex flex-col m-1  md:flex-row md:m-5  items-center justify-start gap-5 overflow-x-auto ">
           {TestimonialsUsers.map((user, index) => (
             <div
               className="border-4 border-black p-10 h-auto w-96 flex-shrink-0 rounded-3xl "  data-aos="fade-in"

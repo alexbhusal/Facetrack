@@ -8,6 +8,7 @@ import Load from "@/components/Load";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast, ToastContainer } from "react-toastify";
+import UserRecord from "@/components/UserRecord";
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
@@ -62,6 +63,7 @@ const Page = () => {
         <ToastContainer/>
         <button className="absolute right-5 top-20" onClick={handleLogOut}>Logout</button>
       </div>
+      <UserRecord/>
       <Footer/>
       </>
     );
