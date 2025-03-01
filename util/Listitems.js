@@ -1,3 +1,5 @@
+
+
 export const allIngredients = [
   {
     image:
@@ -51,6 +53,7 @@ export const DataMain = [
     label: "Websites",
   },
 ];
+
 export const TestimonialsUsers = [
   {
     image:
@@ -112,42 +115,43 @@ export const TestimonialsUsers = [
 
 export const WorkingData = [
   {
-    imageUrl: "",
+    imageUrl: "https://imgs.search.brave.com/EpesL5JWYbtxIlK8v_XHL0arzNdGVBZYC7d7lcUvpyE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMtY29udGVudC5y/ZWd1bGFmb3JlbnNp/Y3MuY29tL1NvZnR3/YXJlLXByb2R1Y3Rz/L0ZhY2UlMjBTREsv/dmlzdWFsLWZhY2Vz/ZGstbmV3LndlYnA",
     title: "Face Registration",
     discription:
       "Initially, individuals (students, employees, etc.) need to register their faces in the system. This involves capturing multiple images of their faces from different angles to create a comprehensive facial profile.",
   },
   {
-    imageUrl: "",
+    imageUrl:"https://imgs.search.brave.com/p3bKH2RskbwW6ppVTgdF5FaKyaAIQo7SJ0qsQSPl-VQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kZXZl/bG9wZXJzLmdvb2ds/ZS5jb20vc3RhdGlj/L21sLWtpdC92aXNp/b24vZmFjZS1kZXRl/Y3Rpb24vaW1hZ2Vz/L2ZhY2VfZGV0ZWN0/aW9uMngucG5n",
     title: "Face Detection",
     discription:
       "When an individual arrives at the attendance point (e.g., entrance of a classroom or office), the system uses cameras to detect their face in real-time.",
   },
   {
-    imageUrl: "",
+    imageUrl: "https://imgs.search.brave.com/6CROwf-925NTW-6l76gU9DdkASOyM3JlEJZYOM0-bbY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNjA3/MzU4NDQzL3Bob3Rv/L2ZhY2lhbC1yZWNv/Z25pdGlvbi5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9UU14/SHFHemFJZW5zMEhJ/clJ2MlJOcVBrXzZk/SlJweWNQSVdBbXVG/OFFoST0",
     title: "Face Recognition",
     discription:
       "The system compares the detected face with the stored facial profiles using advanced algorithms. This involves analyzing unique facial features and matching them with the registered profiles.",
   },
   {
-    imageUrl: "",
+    imageUrl:"https://imgs.search.brave.com/EGXKdKCOBB_7ZvPAiqkEKVA5J1dvjpr-Ch6pfDbaKpg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzI1LzA1LzUw/LzM2MF9GXzEyNTA1/NTA1MF9sb0xmUnhG/MmZKaTVHZTB0NDlq/bWFJTUJVaGxtY2h3/RS5qcGc",
     title: "Attendance Marking",
     discription:
       "Once a match is found, the system automatically marks the individual's attendance in the database. This process is quick and eliminates the need for manual attendance marking.",
   },
   {
-    imageUrl: "",
+    imageUrl:"https://imgs.search.brave.com/i3rQgUJxVfC8HfLF8jst6fAokkHukUaTffhFuD3Xa34/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pdGVy/YWJsZS5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjMvMDYv/MDYxNTIzX1dlYi1Q/dXNoLU5vdGlmaWNh/dGlvbnNfNzY4eDUx/Mi5wbmc",
+    title:"Push Notification",
+    discription:"Push notifications can notify users about successful or failed attendance registration via facial recognition. They can also alert users if their attendance is marked, or remind them to check in for class, enhancing real-time tracking and engagement."
+  },
+  {
+    imageUrl: "https://imgs.search.brave.com/iO89vf7RFluQfqttamunhC6QsVeuO4Mc8IobSvZycGc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hcnRp/Y2xlLmltYWdlcy5j/b25zdW1lcnJlcG9y/dHMub3JnL2ltYWdl/L3VwbG9hZC93XzY1/MixmX2F1dG8scV9h/dXRvLGFyXzE2Ojks/Y19sZmlsbC92MTYy/MTI4MTIyMS9wcm9k/L2NvbnRlbnQvZGFt/L0NSTy1JbWFnZXMt/MjAyMS9FbGVjdHJv/bmljcy8wNU1heS9D/Ui1UZWNoLUlubGlu/ZWhlcm8tYmVzdC1j/bG91ZC1zdG9yYWdl/LWZvci1waG90b3Mt/MDUyMQ",
     title: "Data Storage and Reporting",
     discription:
       "The attendance data is stored in a database, and reports can be generated for analysis and record-keeping. This helps in tracking attendance patterns and identifying any irregularities.",
   },
 ];
 
-// {
-//   imageUrl:"",
-//   title:"",
-//   discription:""
-// },
+
 
 export const PrivacyData = [
   {

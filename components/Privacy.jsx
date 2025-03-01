@@ -5,9 +5,9 @@ const Privacy = () => {
   return (
     
       <>
-      <div className="h-fill ">
+      <div className="h-fill mt-10">
         <div className="">
-            <h1 className='text-3xl font-semibold text-center mb-5 '>Security and Privacy Assurance</h1>
+            <h1 className='text-2xl md:text-3xl font-semibold text-center mb-5 '>Security and Privacy Assurance</h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-5 gap-y-5 m-5 p-5 ">
           {PrivacyData.map((item,index)=>(

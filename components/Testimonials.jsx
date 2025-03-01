@@ -6,7 +6,7 @@ const Testimonials = () => {
     <>
       <div className="h-fill" >
         <div>
-          <h1 className="text-3xl font-semibold text-center">
+          <h1 className="text-2xl md:text-3xl font-semibold text-center mt-10">
             What people are saying about FaceTrack
           </h1>
         </div >
