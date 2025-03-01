@@ -21,6 +21,56 @@ const Page = () => {
   const [message, setMessage] = useState("");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [isUpperCase, setIsUpperCase] = useState(false);
+  const [isLowerCase, setIsLowerCase] = useState(false);
+  const [hasSpecialChar, setHasSpecialChar] = useState(false);
+  const [isLongEnough, setIsLongEnough] = useState(false);
+  const [hasNumber, setHasNumber] = useState(false);
+  const [isPasswordsMatch, setIsPasswordsMatch] = useState(true);
+
+  const handleChange = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+
+     // Check for uppercase letters
+    setIsUpperCase(/[A-Z]/.test(password));
+
+    // Check for lowercase letters
+    setIsLowerCase(/[a-z]/.test(password));
+
+    // Check for special characters
+    setHasSpecialChar(/[!@#$%^&*]/.test(password));
+
+     // Check for number include
+    setHasNumber(/\d/.test(password));
+
+    // Check for minimum length of 8
+    setIsLongEnough(password.length >= 8);
+  };
+  const handleConfirmPasswordChange = (e) => {
+    const confirmPassword = e.target.value;
+    setConfirmPassword(confirmPassword);
+
+    // Check if passwords match
+    setIsPasswordsMatch(password === confirmPassword);
+  };
+
+  
+  
+  const validateFullName = (name) => {
+    const regex = /^[A-Za-z\s]+$/;
+    return regex.test(name);
+  };
+  
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(password);
+  };
 
   const handleReg = async (event) => {
     event.preventDefault();
@@ -29,9 +79,20 @@ const Page = () => {
     setLoading(true);
 
     if (password !== confirmPassword) {
-      toast.error("Password not matched");
+      toast.error("Passwords do not match");
       setLoading(false);
-
+      return;
+    } else if (!validatePassword(password)) {
+      toast.error("Password must meet all the requirements");
+      setLoading(false);
+      return;
+    } else if (!validateFullName(fullName)) {
+      toast.error("Full name must contain only letters and spaces");
+      setLoading(false);
+      return;
+    } else if (!validateEmail(email)) {
+      toast.error("Invalid email format");
+      setLoading(false);
       return;
     }
 
@@ -111,7 +172,7 @@ const Page = () => {
                   placeholder="Password"
                   className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -121,12 +182,24 @@ const Page = () => {
                   type="password"
                   placeholder="Confirm Password"
                   id="confirmPassword"
-                  className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
+                  className={`focus:outline-none focus:ring-2  w-full md:w-72 border-2 p-3 rounded-full ${isPasswordsMatch ? 'border-indigo-500 focus:ring-indigo-500' : 'border-red-500 focus:ring-red-500'}`} // Apply red border if passwords don't match
+
+                  // className=" focus:outline-none focus:ring-2 focus:ring-indigo-500 w-full md:w-72 border-2 border-indigo-500 p-3 rounded-full"
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={handleConfirmPasswordChange}
                   required
                 />
               </div>
+              {password && (
+                <div className="flex text-base justify-center items-center gap-8 my-2">
+                <span className={isUpperCase ? "text-green-500" : "text-red-500"}>A-Z</span>
+                <span className={isLowerCase ? "text-green-500" : "text-red-500"}>a-z</span>
+                <span className={hasSpecialChar ? "text-green-500" : "text-red-500"}>!@#$%^&</span>
+                <span className={hasNumber ? "text-green-500" : "text-red-500"}>0-9</span> 
+                <span className={isLongEnough ? "text-green-500" : "text-red-500"}>min 8</span>
+                </div>
+              )}
+              
               <div className="flex justify-center items-center">
                 <button
                   type="submit"
