@@ -9,6 +9,7 @@ import { auth } from "../../util/firebase";
 import { useRouter } from "next/navigation";
 import ChangeImg from "@/components/ChangeImg";
 import Link from "next/link";
+import { toast, ToastContainer } from "react-toastify";
 
 const Page = () => {
   const [currentPassword, setCurrentPassword] = useState("");
@@ -24,7 +25,7 @@ const Page = () => {
     setMessage(null);
 
     if (newPassword !== confirmNewPassword) {
-      setError("New passwords do not match.");
+      toast.error("New passwords do not match.");
       return;
     }
 
@@ -37,16 +38,22 @@ const Page = () => {
         );
         await reauthenticateWithCredential(user, credential);
         await updatePassword(user, newPassword);
-        setMessage("Password changed successfully.");
+        toast.success("Password changed successfully.");
         setCurrentPassword("");
         setNewPassword("");
         setConfirmNewPassword("");
+        setTimeout(() => {
+          router.push("/dashboard");
+      }, 1000);
       } else {
-        setError("No user found.");
+        toast.error("No user found.");
       }
     } catch (e) {
       console.error(e);
-      setError("An error occurred while updating the password.");
+      toast.warning("Current password does not match. Please reset it.")
+      setTimeout(()=>{
+        router.push("/forgetpassword");
+      },2000);
     }
   };
 
@@ -55,6 +62,7 @@ const Page = () => {
       <h1 className="text-3xl md:text-5xl text-blue-500 font-bold text-center   my-10">
         Change Password
       </h1>
+      <ToastContainer/>
 
       <div className="flex flex-col md:flex-row">
         <div className="h-full w-full md:w-3/5 ">

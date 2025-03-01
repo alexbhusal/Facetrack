@@ -62,7 +62,7 @@ const MainNav = () => {
               <li>
                 <Link
                   href="/"
-                  className="block text-2xl py-2 px-3 md:p-0  text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 "
+                  className="block text-2xl py-2 px-3 md:p-0  text-white bg-blue-500 rounded-sm md:bg-transparent md:text-blue-500 "
                   aria-current="page"
                 >
                   Home

@@ -14,7 +14,7 @@ const UploadImage = ({ setImageUrl }) => {
         onSuccess={handleSuccess}
       >
         {({ open }) => (
-          <button onClick={() => open()}>Change Profile</button>
+          <button onClick={() => open()} className='p-2 bg-blue-500 text-white my-2 rounded-full'>Change Profile</button>
         )}
       </CldUploadWidget>
     </div>

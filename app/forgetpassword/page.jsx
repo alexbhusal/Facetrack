@@ -41,7 +41,7 @@ const Page = () => {
         <div className="h-full w-full md:w-3/4 ">
           <Forgetimg />
         </div>
-      <div class="border-l-4 border-red-500 h-180 mx-4"></div>
+      <div className="border-l-4 border-red-500 h-180 mx-4"></div>
 
         <div className="w-full md:w-1/2">
           <div className="m-5 md:m-20">

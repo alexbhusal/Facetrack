@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { auth, firestore } from "../../util/firebase";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { getDoc, doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import EditProfile from "@/components/EditProfile";
@@ -19,6 +19,7 @@ const ProfilePage = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [btnloading, setBtnLoading] = useState(false);
+  
 
   const router = useRouter();
 
@@ -26,7 +27,7 @@ const ProfilePage = () => {
     const unsub = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        const userDoc = await getDoc(doc(firestore, "users", currentUser.uid));
+         const userDoc = await getDoc(doc(firestore, "users", currentUser.uid));
         if (userDoc.exists()) {
           const userData = userDoc.data();
           setFullName(userData.fullName);
@@ -73,30 +74,38 @@ const ProfilePage = () => {
   };
 
   if (loading) {
-    return <Spin />;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Spin />
+      </div>
+    );
   }
 
   return (
     <>
       <ToastContainer />
-      <h1 className="text-3xl md:text-5xl text-center font-bold m-2 md:m-10">Profile Update</h1>
+      <h1 className="text-3xl md:text-5xl text-center font-bold m-2 md:m-10">
+        Profile Update
+      </h1>
       <div className="flex flex-col md:flex-row">
         <div className="hidden md:block h-full md:w-8/12">
           <EditProfile />
         </div>
         <div className="border-l-4 border-black"></div>
         <div className="w-full md:w-2/12 mx-2 md:mx-10">
-      <UploadImage setImageUrl={setImageUrl} />
-        <div className="w-48 h-48 mx-20 h my-2 overflow-hidden rounded-full">
-              <img
-                src={
-                  imgurl ||
-                  "https://imgs.search.brave.com/JAHeWxUYEwHB7KV6V1IbI9oL7wxJwIQ4Sbp8dHQL09A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAx/MzkxNTc2NC9waG90/by91c2VyLWljb24t/aW4tZmxhdC1zdHls/ZS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9UEotMnZvUWZh/Q3hhZUNsdzZYYlVz/QkNaT3NTTjlIVWVC/SUg1Qk82VmRScz0"
-                }
-                className="w-full h-full object-cover object-center"
-                alt="Profile"
-              />
-            </div>
+          <div className="w-48 h-48 mx-20 h my-2 overflow-hidden rounded-full">
+            <img
+              src={
+                imgurl ||
+                "https://imgs.search.brave.com/JAHeWxUYEwHB7KV6V1IbI9oL7wxJwIQ4Sbp8dHQL09A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAx/MzkxNTc2NC9waG90/by91c2VyLWljb24t/aW4tZmxhdC1zdHls/ZS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9UEotMnZvUWZh/Q3hhZUNsdzZYYlVz/QkNaT3NTTjlIVWVC/SUg1Qk82VmRScz0"
+              }
+              className="w-full h-full object-cover object-center"
+              alt="Profile"
+            />
+          </div>
+          <div className="flex justify-center md:justify-end items-center ">
+            <UploadImage setImageUrl={setImageUrl} />
+          </div>
           <form onSubmit={handleSubmit} className="mx-10">
             <div className="mb-4">
               <input

@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       {loading ? (
-        <div className=" m-10 w-400 h-400">
+        <div className=" flex justify-center items-center h-screen">
           <FaceLoad />
         </div>
       ) : (

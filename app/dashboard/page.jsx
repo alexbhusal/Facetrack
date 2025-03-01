@@ -5,10 +5,10 @@ import { auth, firestore } from "../../util/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import Load from "@/components/Load";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import UserRecord from "@/components/UserRecord";
+import UserNavbar from "@/components/UserNavbar";
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
@@ -20,9 +20,9 @@ const Page = () => {
     try {
       await signOut(auth);
       toast.warning("You are logged out");
-      setTimeout(()=>{
+      setTimeout(() => {
         router.push("/login");
-      }, 2000)
+      }, 2000);
     } catch (e) {
       console.log(e);
     }
@@ -35,40 +35,40 @@ const Page = () => {
         const userDoc = await getDoc(doc(firestore, "users", user.uid));
         if (userDoc.exists()) {
           const userData = userDoc.data();
-          setUserName(userData.fullName); 
+          setUserName(userData.fullName);
           toast.success(`Welcome back, ${userData.fullName}!`);
         } else {
-          router.push("/login"); 
+          router.push("/login");
         }
         setLoading(false);
       } else {
-        router.push("/login"); 
-        setLoading(false); 
+        router.push("/login");
+        setLoading(false);
       }
-    });    
+    });
     return () => {
-      unsub(); 
+      unsub();
     };
   }, [router]);
-  
 
   if (loading) {
-    return <Load/>
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Load />
+      </div>
+    );
   }
   if (user) {
     return (
       <>
-      <Navbar/>
-      <div>
-        <ToastContainer/>
-        <button className="absolute right-5 top-20" onClick={handleLogOut}>Logout</button>
-      </div>
-      <UserRecord/>
-      <Footer/>
+        <UserNavbar handleLogOut={handleLogOut}/>
+        <ToastContainer />
+        <UserRecord />
+        <Footer />
       </>
     );
-  } 
-    return null  ;
+  }
+  return null;
 };
 
 export default Page;
