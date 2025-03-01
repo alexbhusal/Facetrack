@@ -5,7 +5,7 @@ const Privacy = () => {
   return (
     
       <>
-      <div className="h-fill mt-10">
+      <div className="h-fill mt-10" data-aos="flip-up">
         <div className="">
             <h1 className='text-2xl md:text-3xl font-semibold text-center mb-5 '>Security and Privacy Assurance</h1>
         </div>

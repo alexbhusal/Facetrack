@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <>
-<footer className=" border-black border-4 m-2 ">
+<footer className=" border-black border-4 m-2 " data-aos="zoom-in-up">
     <div className="mx-auto w-auto max-w-screen-xl">
       <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
         <div>
