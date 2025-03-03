@@ -4,7 +4,7 @@ import { WorkingData } from '@/util/Listitems'
 const Working = () => {
   return (
     <>
-      <div className="h-full mt-10 m-5" data-aos="fade-up-right">
+      <div className="h-full max-w-full mt-10 m-5" data-aos="fade-up-right">
         <div className="">
             <h1 className='text-3xl font-semibold text-center m-5'>How does it works</h1>
         </div>

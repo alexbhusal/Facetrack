@@ -101,7 +101,7 @@ export const TestimonialsUsers = [
     name: "Liam Johnson",
     designation: "Security Supervisor",
     discription:
-      "With FaceTrack, our attendance system provides high level of security. Employees can check in and out quickly, and we have a reliable record of their attendance.",
+      "Our attendance system provides high level of security. Employees can check in and out quickly, and we have a reliable record of their attendance.",
   },
   {
     image:
