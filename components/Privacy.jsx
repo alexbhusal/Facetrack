@@ -14,7 +14,7 @@ const Privacy = () => {
             <h1 className='text-center text-blue-500 text-xl md:text-2xl font-bold p-3'>
               {item.title}
             </h1>
-            <h2 className='text-start text-lg md:text-xl font-semibold p-2'>
+            <h2 className='text-start text-lg md:text-xl  p-2'>
               {item.discription}
             </h2>
           </div>
