@@ -4,13 +4,13 @@ import { TestimonialsUsers } from "../util/Listitems";
 const Testimonials = () => {
   return (
     <>
-      <div className="h-fill" >
+      <div className="h-fill shadow-xl " >
         <div>
           <h1 className="text-2xl md:text-3xl font-semibold text-center mt-10">
             What people are saying about FaceTrack
           </h1>
         </div >
-        <div className="flex flex-col m-1  md:flex-row md:m-5  items-center justify-start gap-5 overflow-x-auto ">
+        <div className="flex flex-col m-0.5  md:flex-row md:m-5  items-center justify-start gap-5 overflow-x-auto ">
           {TestimonialsUsers.map((user, index) => (
             <div
               className="border-4 border-black p-10 h-auto w-96 flex-shrink-0 rounded-3xl "  data-aos="fade-in"

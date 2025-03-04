@@ -29,7 +29,7 @@ const Section = () => {
   }, []);
 
   return (
-    <div className="mb-5 h-full w-full px-4" data-aos="fade-right">
+    <div className="mb-5 h-full w-full px-4 shadow-2xl p-1" data-aos="fade-right">
       <div>
         <h1 className="sm:text-left text-center text-2xl  font-bold mt-10 mb-5 ml-4 sm:ml-20">
           Welcome to Face Track <br />
@@ -37,7 +37,7 @@ const Section = () => {
       </div>
       <div className="flex flex-col sm:flex-row items-center justify-center">
         <div className="w-full sm:w-1/2 mx-4 sm:mx-20">
-          <p className="text-justify text-xl sm:text-2xl text-blue-500 font-semibold">
+          <p className="text-justify text-xl sm:text-2xl text-blue-500 font-normal md:font-semibold">
             {text}
           </p>
         </div>

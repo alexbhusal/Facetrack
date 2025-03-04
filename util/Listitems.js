@@ -155,36 +155,25 @@ export const WorkingData = [
 
 export const PrivacyData = [
   {
+    imageUrl:"https://cdn.pixabay.com/photo/2018/06/14/04/50/security-3474172_1280.png",
     title: "Data Encryption",
-    discription:
-      "All facial data and personal information are encrypted both in transit and at rest. This ensures that sensitive data is protected from unauthorized access and breaches.",
+    discription:"Protects facial data and sensitive information from unauthorized access both in transit and at rest."
   },
   {
+    imageUrl:"https://imgs.search.brave.com/eQ-2abgvXz6nXZbEAsDulMlUINY5tspZKd80WsUuajM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTMz/OTAxNjc4NC9waG90/by9uZXR3b3JrLXNl/Y3VyaXR5LXN5c3Rl/bS1jb25jZXB0Lmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz0z/VWw0WU81LVJVWllB/VHpHTmM0bVc2dVlU/eUtKelphTGdmQURy/YXM5VUJVPQ",
+    title:"Access Control",
+    discription:"Ensures that only authorized individuals and systems can access the attendance records or biometric data."  
+  },
+  {
+    imageUrl:"https://imgs.search.brave.com/ZKDGWn0FFjpmeT0I2Yw_e_IaqYI9E9a49yTlANq9k8k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9kaWdpdGFsLWNy/aW1lLXByZXZlbnRp/b24tYnktYW5vbnlt/b3VzLWhhY2tlcnMt/cGVyc29uYWwtZGF0/YS1zZWN1cml0eV8y/NzYzNC02MTMuanBn/P3NlbXQ9YWlzX2h5/YnJpZA",
     title:"Data Anonymization",
-    discription:"To protect individual privacy, facial data can be anonymized, ensuring that it cannot be traced back to specific individuals without proper authorization."
+    discription:
+    "Protects individual privacy by ensuring that sensitive personal information is not exposed unless absolutely necessary."
   },
   {
-    title:"Compliance with Regulations",
-    discription:"FBAMS should comply with relevant data protection regulations, such as GDPR or CCPA, to ensure that the system meets legal requirements for data privacy and security."
-  },
-  {
-    title:"Regular Audits and Monitoring",
-    discription:"Regular security audits and continuous monitoring of the system help identify and address potential vulnerabilities, ensuring the system remains secure over time."
-  },
-  {
-    title:"User Consent",
-    discription:"Obtaining explicit consent from individuals before collecting and using their facial data is crucial. This ensures transparency and builds trust with users."
-  },
-  {
-    title:"Data Minimization",
-    discription:"Collecting only the necessary data required for attendance management helps reduce the risk of data misuse and enhances privacy protection."
-  },
-  {
-    title:"Data Minimization",
-    discription:"Collecting only the necessary data required for attendance management helps reduce the risk of data misuse and enhances privacy protection."
-  },
-  {
-    title:"Secure Storage",
-    discription:"Facial data should be stored in secure, encrypted databases with robust security measures to prevent unauthorized access and data breaches."
+    imageUrl:"https://imgs.search.brave.com/yA74weHVxIAsSMQDWQAPBBHhIKx5UN6PEjsfZvYW_OM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAyLzQ5Lzk3Lzgz/LzM2MF9GXzI0OTk3/ODM3OF9zQ3l6b21O/M0llNWc5R0RhREhY/ckNQY25zZ3RrMXVn/ay5qcGc",
+    title:"Privacy Regulations",
+    discription:
+    "Ensure compliance with privacy laws like GDPR, CCPA, and other regional data protection regulations."
   },
 ];
