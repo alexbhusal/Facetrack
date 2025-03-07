@@ -8,8 +8,8 @@ export default function Features() {
   const [selectedTab, setSelectedTab] = useState(allIngredients[0]);
 
   return (
-    <div className="h-full mt-12" data-aos="fade-up" >
-      <div className="">
+    <div className="h-full mt-12" id="features" data-aos="fade-up" >
+      <div className="" >
         <h1 className="text-3xl font-semibold text-center">Features</h1>
       </div>
       <div className="w-full h-screen max-h-[700px] md:max-h-[600px] shadow-xl flex flex-col overflow-hidden">

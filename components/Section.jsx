@@ -29,8 +29,8 @@ const Section = () => {
   }, []);
 
   return (
-    <div className="mb-5 h-full w-full px-4 shadow-2xl p-1" data-aos="fade-right">
-      <div>
+    <div className="mb-5 h-full w-full px-4 shadow-2xl p-1" data-aos="fade-right" id="section">
+      <div >
         <h1 className="sm:text-left text-center text-2xl  font-bold mt-10 mb-5 ml-4 sm:ml-20">
           Welcome to Face Track <br />
         </h1>

@@ -4,8 +4,8 @@ import { PrivacyData } from "../util/Listitems";
 const Privacy = () => {
   return (
     <>
-      <div className="h-full max-w-full mt-10 m-5 shadow-2xl pb-2" data-aos="fade-up-right">
-             <div className="">
+      <div className="h-full max-w-full mt-10 m-5 shadow-2xl pb-2" id="privacy" data-aos="fade-up-right" >
+             <div className="" >
                  <h1 className='text-xl md:text-3xl font-semibold text-center m-5'>Security and Privacy Assurance</h1>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-4 gap-10">

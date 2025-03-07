@@ -70,7 +70,7 @@ const MainNav = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="#features"
                   className="block text-2xl py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 "
                 >
                   About
@@ -78,18 +78,26 @@ const MainNav = () => {
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="#working"
                   className="block text-2xl py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 "
                 >
-                  Services
+                  Working
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/"
+                  href="#privacy"
                   className="block text-2xl py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 "
                 >
-                  Contact
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="#testimonials"
+                  className="block text-2xl py-2 px-3 md:p-0 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 "
+                >
+                  Testimonials
                 </Link>
               </li>
             </ul>

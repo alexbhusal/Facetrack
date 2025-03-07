@@ -4,8 +4,8 @@ import { TestimonialsUsers } from "../util/Listitems";
 const Testimonials = () => {
   return (
     <>
-      <div className="h-fill shadow-xl " >
-        <div>
+      <div className="h-fill shadow-xl " id="testimonials">
+        <div >
           <h1 className="text-2xl md:text-3xl font-semibold text-center mt-10">
             What people are saying about FaceTrack
           </h1>
