@@ -21,7 +21,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en"
+    className="hydrated">
       <AOSInit />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
