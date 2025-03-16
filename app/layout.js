@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AOSInit } from '../util/aoss'
+import ChatBot from "@/components/ChatBot";
 
 
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <ChatBot />
       </body>
     </html>
   );
