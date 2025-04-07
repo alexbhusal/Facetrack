@@ -3,12 +3,9 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";  // Import the getAuth function from Firebase
 import { getFirestore,collection, addDoc, getDocs } from "firebase/firestore";  // Import Firestore
 
-
-console.log(`${process.env.API_KEY}`);
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: `${process.env.NEXT_PUBLIC_API_KEY}`,  // Use environment variables for sensitive data
+  apiKey: `${process.env.NEXT_PUBLIC_API_KEY}`,  
   authDomain: `${process.env.NEXT_PUBLIC_AUTH_DOMAIN}`,
   projectId: `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
   storageBucket: `${process.env.NEXT_PUBLIC_STORAGE_BUCKET}`,
