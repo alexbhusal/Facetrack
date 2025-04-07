@@ -5,13 +5,13 @@ import { getFirestore,collection, addDoc, getDocs } from "firebase/firestore";  
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCpZsqHMDY23TaYiavcaR6GU-VF6fRG058",
-  authDomain: "nepathya-attendance.firebaseapp.com",
-  projectId: "nepathya-attendance",
-  storageBucket: "nepathya-attendance.firebasestorage.app",
-  messagingSenderId: "512988560196",
-  appId: "1:512988560196:web:45df8d2bad756295c2f511",
-  measurementId: "G-ZDT26YXD6R"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID,
 };
 
 // Initialize Firebase
