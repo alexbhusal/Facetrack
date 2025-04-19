@@ -9,17 +9,21 @@ import Footer from "@/components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import UserRecord from "@/components/UserRecord";
 import UserNavbar from "@/components/UserNavbar";
+import Cookies from 'js-cookie';
 
 const Page = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [username, setUserName] = useState(null);
+  const [userName, setUserName] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+  const [userImageurl, setUserImageurl] = useState(null);
   const router = useRouter();
 
   const handleLogOut = async () => {
     try {
       await signOut(auth);
       toast.warning("You are logged out");
+      Cookies.remove("token");
       setTimeout(() => {
         router.push("/login");
       }, 2000);
@@ -36,6 +40,8 @@ const Page = () => {
         if (userDoc.exists()) {
           const userData = userDoc.data();
           setUserName(userData.fullName);
+          setUserEmail(userData.email);
+          setUserImageurl(userData.imgurl);
           toast.success(`Welcome back, ${userData.fullName}!`);
         } else {
           router.push("/login");
@@ -61,7 +67,7 @@ const Page = () => {
   if (user) {
     return (
       <>
-        <UserNavbar handleLogOut={handleLogOut}/>
+        <UserNavbar handleLogOut={handleLogOut} username={userName} email={userEmail} imgURL={userImageurl}/>
         <ToastContainer />
         <UserRecord />
         <Footer />

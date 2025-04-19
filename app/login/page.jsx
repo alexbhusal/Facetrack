@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
 import Loginimg from '@/components/loginimg';
 import Spin from '@/components/Spin';
+import Cookies from 'js-cookie';
 
 
 const Page = () => {
@@ -16,6 +17,7 @@ const Page = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const  router = useRouter();
+  
 
   const handleLog = async (event) => {
     event.preventDefault();
@@ -26,7 +28,10 @@ const Page = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
+
       if (user.emailVerified) {
+        const token = await user.getIdToken();
+        Cookies.set("token", token, { path: "/", expires: 30 });
         const rData = localStorage.getItem("rData");
         const { fullName = "" } = rData ? JSON.parse(rData) : {};
 
@@ -38,6 +43,7 @@ const Page = () => {
           });
         }
         toast.success("You are loggedIn")
+        
         setTimeout(() => {
           router.push("/dashboard");
       }, 1000);
