@@ -78,9 +78,13 @@ function Page() {
     <>
       <ToastContainer />
       <p className="text-3xl text-center text-red-600 my-6">Face App</p>
-      <div className="flex flex-col md:flex-row mx-6">
+      <div className="flex justify-center items-center m-5">
+        <div className="">
         <video ref={videoRef} autoPlay className="rounded-2xl border-4 border-dashed border-black w-full" crossOrigin="anonymous" />
-        <canvas ref={canvasRef} width="940" height="650" className="w-full mt-4 md:mt-0" />
+        </div>
+        <div className="">
+        <canvas ref={canvasRef}  className="w-full  md:mt-0" />
+        </div>
       </div>
       <p className="text-xl text-center mt-4">
         {userName ? `Hello, ${userName}!` : "Please wait... Recognizing your face"}
