@@ -1,17 +1,17 @@
-import { NextResponse } from 'next/server';
-
-const protectedRoutes = ['/attendance'];
+import { NextResponse,NextRequest } from 'next/server';
 
 export function middleware(req) {
   const url = req.nextUrl.clone();
   const token = req.cookies.get('token')?.value;
 
-  if (protectedRoutes.includes(url.pathname)) {
-    if (!token) {
-      url.pathname = '/login';
-      return NextResponse.redirect(url);
-    }
+  if (!token) {
+    url.pathname = '/login';
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
 }
+
+export const config = {
+  matcher: ['/attendance','/changepassword'],
+};
