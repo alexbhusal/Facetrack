@@ -47,8 +47,8 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
                 <img src={imgURL} alt=""  className="mt-10 h-28 w-auto rounded-full" />
               </div>
               <div className="px-4 py-3">
-                <span className="block text-xl"> {username}</span>
-                <span className="block text-sm text-gray-500">{email}</span>
+                <span className="block text-xl text-center"> {username}</span>
+                <span className="block text-sm text-gray-500 text-center">{email}</span>
               </div>
 
               <ul className="py-2">
@@ -94,13 +94,13 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
         >
           <ul className="flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0">
             <li>
-              <Link href="/" className="block py-2 px-3 text-blue-700">
+              <Link href="#" className="block py-2 px-3 text-blue-700">
                 Home
               </Link>
             </li>
             <li>
               <Link
-                href="/about"
+                href="#"
                 className="block py-2 px-3 hover:text-blue-700"
               >
                 About
@@ -108,7 +108,7 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
             </li>
             <li>
               <Link
-                href="/services"
+                href="#"
                 className="block py-2 px-3 hover:text-blue-700"
               >
                 Services
@@ -116,7 +116,7 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
             </li>
             <li>
               <Link
-                href="/pricing"
+                href="#"
                 className="block py-2 px-3 hover:text-blue-700"
               >
                 Pricing
@@ -124,7 +124,7 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
             </li>
             <li>
               <Link
-                href="/contact"
+                href="#"
                 className="block py-2 px-3 hover:text-blue-700"
               >
                 Contact

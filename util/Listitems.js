@@ -58,7 +58,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/portrait-smiling-young-man-eyewear_171337-4842.jpg?t=st=1740749867~exp=1740753467~hmac=1295e56ff2e5ba5a0ac1014f30c23cc0592d0e4daafa52c9481765ee02771362&w=2000",
-    name: "Alex Thompson",
+    name: "Prakash Poudel",
     designation: "Product Manager",
     discription:
       "The face-based attendance system has made tracking employee attendance effortless. It's fast, accurate, and enhances security at the workplace.",
@@ -66,7 +66,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/man-shirt-with-crossed-arms_171337-15537.jpg?t=st=1740749939~exp=1740753539~hmac=4177231c07d41498cfbb4a77004c55bbace4e5689428f1e06862296792921239&w=2000",
-    name: "Emily Roberts",
+    name: "Ubraj Pandey",
     designation: "HR Manager",
     discription:
       "This face-based attendance system has improved our HR operations. It's not only efficient but also ensures accuracy in recording attendance without any hassle.",
@@ -74,7 +74,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/portrait-smiling-male-doctor_171337-1532.jpg?t=st=1740749956~exp=1740753556~hmac=cfa8558fe0c9a0212d255591282d22e7cfdb1a177cccaed3845dd6b50ed1e09a&w=2000",
-    name: "Michael Brown",
+    name: "Bishnu Panthi",
     designation: "Operations Manager",
     discription:
       "Implementing the face-based attendance system has streamlined our workflow. It reduces human error and saves time during the attendance process.",
@@ -82,7 +82,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/beauty-portrait-mystery-smiling-ginger-woman-with-long-hair-posing-sideways-looking_171337-920.jpg?t=st=1740749990~exp=1740753590~hmac=fb36493c44e4d7d85d64f3146ab06d29882c35f963dc8dbdab5da48946a7a962&w=2000",
-    name: "Sophia Williams",
+    name: "Arpana Sapkota",
     designation: "Tech Lead",
     discription:
       "The face-based attendance management system has brought convenience and security to our team. It’s easy to use and has streamlined the process significantly.",
@@ -90,7 +90,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/cheerful-pleasant-looking-woman-eyewear-has-happy-expression-dressed-white-shirt_273609-18257.jpg?t=st=1740750018~exp=1740753618~hmac=4db126c964021904c6fc5705166b6379523142d87f03768d6d2efd1a3e971a1a&w=2000",
-    name: "Olivia Parker",
+    name: "Manisha Ghimire",
     designation: "Project Coordinator",
     discription:
       "Our attendance system is now more secure and efficient thanks to facial recognition. It’s eliminated the possibility of buddy punching and other inaccuracies.",
@@ -98,7 +98,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/handsome-young-cheerful-man-with-arms-crossed_171337-1073.jpg?t=st=1740749771~exp=1740753371~hmac=a16957a94bfd55528c03dcd8897a5db98d501585627df82a03641e33183835ed&w=2000",
-    name: "Liam Johnson",
+    name: "Sanjay Thapa",
     designation: "Security Supervisor",
     discription:
       "Our attendance system provides high level of security. Employees can check in and out quickly, and we have a reliable record of their attendance.",
@@ -106,7 +106,7 @@ export const TestimonialsUsers = [
   {
     image:
       "https://img.freepik.com/free-photo/serious-bearded-young-man-scratches-head-thinks-deeply-about-how-solve-problem_273609-40665.jpg?t=st=1740750034~exp=1740753634~hmac=baeea5eddfb5d0935063d2c9e3545a28df030ccc87af3b9da6885dbc43fe9eca&w=2000",
-    name: "Ethan Scott",
+    name: "Suman Shrestha",
     designation: "Chief Technology Officer",
     discription:
       "The face-based attendance management system has enhanced operational efficiency and data accuracy in our company. It’s a great technological advancement.",

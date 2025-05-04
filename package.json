@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@lottiefiles/dotlottie-react": "^0.12.3",
+    "@mui/material": "^7.0.2",
+    "@mui/x-charts": "^8.1.0",
+    "@mui/x-date-pickers": "^8.2.0",
     "aos": "^2.3.4",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "face-api.js": "^0.22.2",
     "firebase": "^11.2.0",

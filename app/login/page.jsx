@@ -42,7 +42,7 @@ const Page = () => {
             email: user.email,
           });
         }
-        toast.success("You are loggedIn")
+        toast.success("You are loggedIn");
         
         setTimeout(() => {
           router.push("/dashboard");
