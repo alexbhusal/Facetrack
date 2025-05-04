@@ -10,7 +10,7 @@ const MainNav = () => {
       <nav className="" data-aos="fade-right">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
-            href="/"
+            href="/attendance"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <div className="hidden md:block h-16 md:h-16 ">

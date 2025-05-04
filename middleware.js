@@ -13,5 +13,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/attendance','/changepassword'],
+  matcher: ['/changepassword'],
 };
