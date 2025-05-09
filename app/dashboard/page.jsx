@@ -42,7 +42,10 @@ const Page = () => {
           setUserName(userData.fullName);
           setUserEmail(userData.email);
           setUserImageurl(userData.imgurl);
-          toast.success(`Welcome back, ${userData.fullName}!`);
+          if (!sessionStorage.getItem("welcomeToastShown")) {
+            toast.success(`Welcome ${userData.email}`);
+            sessionStorage.setItem("welcomeToastShown", "true");
+          } 
         } else {
           router.push("/login");
         }

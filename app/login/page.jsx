@@ -21,7 +21,6 @@ const Page = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        // If user is logged in, redirect to dashboard
         router.push('/dashboard');
       }
     });
@@ -54,7 +53,7 @@ const Page = () => {
 
         setTimeout(() => {
           router.push("/dashboard");
-        }, 1000);
+        }, 2000);
       } else {
         toast.warning("Please verify your email.");
         setTimeout(() => {
