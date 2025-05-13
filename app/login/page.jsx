@@ -20,9 +20,9 @@ const Page = () => {
   // Check if user is already logged in
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        router.push('/dashboard');
-      }
+      // if (user) {
+      //   router.push('/dashboard');
+      // }
     });
     return () => unsubscribe();
   }, [router]);
@@ -49,8 +49,6 @@ const Page = () => {
             email: user.email,
           });
         }
-        toast.success("You are loggedIn");
-
         setTimeout(() => {
           router.push("/dashboard");
         }, 2000);

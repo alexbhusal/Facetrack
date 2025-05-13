@@ -7,6 +7,7 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef(null);
+  const fakeImageUrl = "https://imgs.search.brave.com/JAHeWxUYEwHB7KV6V1IbI9oL7wxJwIQ4Sbp8dHQL09A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMjAx/MzkxNTc2NC9waG90/by91c2VyLWljb24t/aW4tZmxhdC1zdHls/ZS5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9UEotMnZvUWZh/Q3hhZUNsdzZYYlVz/QkNaT3NTTjlIVWVC/SUg1Qk82VmRScz0"; 
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -41,10 +42,10 @@ export default function UserNavbar({ handleLogOut, username, email,imgURL }) {
           {userMenuOpen && (
             <div
               ref={userMenuRef}
-              className="absolute mt-32 right-0 w-48 bg-white border rounded shadow-md z-10"
+              className="absolute mt-32 right-0 w-auto bg-white border rounded shadow-md z-10"
             >
               <div className="w-auto h-32 mx-auto mt-12 flex justify-center items-center">  
-                <img src={imgURL} alt=""  className="mt-10 h-28 w-auto rounded-full" />
+                <img src={imgURL||fakeImageUrl } alt=""  className="mt-10 h-28 w-auto rounded-full" />
               </div>
               <div className="px-4 py-3">
                 <span className="block text-xl text-center"> {username}</span>

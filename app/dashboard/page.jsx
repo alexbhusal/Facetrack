@@ -43,7 +43,7 @@ const Page = () => {
           setUserEmail(userData.email);
           setUserImageurl(userData.imgurl);
           if (!sessionStorage.getItem("welcomeToastShown")) {
-            toast.success(`Welcome ${userData.email}`);
+            toast.success(`Welcome ${userData.fullName}`);
             sessionStorage.setItem("welcomeToastShown", "true");
           } 
         } else {
