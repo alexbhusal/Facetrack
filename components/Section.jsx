@@ -5,7 +5,7 @@ import DataShow from "./DataShow";
 const Section = () => {
   const [text, setText] = useState("");
 
-  const fullText = ` FaceTrack uses facial recognition technology to track employee or student attendance. 
+  const fullText = `  FaceTrack uses facial recognition technology to track employee or student attendance. 
                     It works by capturing the face of the individual through a camera, comparing it to a pre-existing database, and recording the time of entry or exit.
                     This system is highly accurate, contactless, and efficient, reducing the risk of errors or fraud associated with traditional methods like fingerprint scanning or manual logging. 
                     It also enhances security and privacy, as it does not require physical IDs. 
